@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#include <gperftools/profiler.h>
+#include <gperftools/profiler.h>
 #include <R.h>
 #include "ehh_utils.h"
 
@@ -33,7 +33,7 @@ void r_scan_hh(int *Rdata,
 	double **EHH;
 	double *EHHS;
 	/* Change map positions based on the distance */
-    ///ProfilerStart("/tmp/new_profile.prof");
+    ProfilerStart("/home/smilefreak/profiles/new_profile.prof");
 	double *gap_list;
 	int map_distance = 0;
 	int kilobase = 1000;
@@ -188,5 +188,5 @@ void r_scan_hh(int *Rdata,
 	free(number_haplotypes);
 	free(EHH);
 	free(tmp);
-    //ProfilerStop();
+    ProfilerStop();
 }

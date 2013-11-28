@@ -5,8 +5,13 @@ LD_FLAGS=-I/usr/share/R/include -I/usr/include/gperftools
 LIBS= -lR -lprofiler
 OBJECTS=$(SOURCES:.c=.o)
 SHARED_LIBRARY=rehh.so
+REHH_LIB=/home/smilefreak/R/x86_64-pc-linux-gnu-library/3.0/rehh/libs
+
 
 all: $(SOURCES) $(SHARED_LIBRARY)
+
+install: $(SHARED_LIBRARY)
+	install -m 755 $(SHARED_LIBRARY) $(REHH_LIB)
 
 $(SHARED_LIBRARY): $(OBJECTS) 
 	$(GCC) $(LD_FLAGS) -shared $(OBJECTS) -o $(SHARED_LIBRARY) $(LIBS)

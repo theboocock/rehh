@@ -1,4 +1,5 @@
 #include "ehh_utils.h"
+#include <gperftools/profiler.h>
 
 void compute_EHH(int **data,
 				 int number_chromosomes,
@@ -19,6 +20,7 @@ void compute_EHH(int **data,
 	int *count;
 	int **haplotype;
 	
+    //ProfilerStart("/home/smilefreak/profiles/ehh.prof");
 	if (direction == LEFT) {
 		down = end;
 		up = focal;
@@ -81,6 +83,7 @@ void compute_EHH(int **data,
 	}
 	free(haplotype);
 	free(count);
+    //ProfilerStop();
 }
 
 void compute_EHHS(int **data,
@@ -104,6 +107,7 @@ void compute_EHHS(int **data,
 	double haplotype_homozygosity;
 	double homozygosity;
 	
+    //ProfilerStart("/home/smilefreak/profiles/ehhs.prof");
 	if (direction == LEFT) {
 		down = end;
 		up = focal;
@@ -167,6 +171,7 @@ void compute_EHHS(int **data,
 	}
 	free(haplotype);
 	free(count);
+    //ProfilerStop();
 }
 
 double integrate(double *x_axis,
