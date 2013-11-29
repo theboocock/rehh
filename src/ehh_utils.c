@@ -214,11 +214,6 @@ double integrate_gaps(double *x_axis,
 	double area = 0.0;
 	i = 0;
 	// TODO: Delete negative 1 after testing windows
-	if( y_axis[i] >= threshold){
-		return -1;
-	}else if(y_axis[n-1] >= threshold){
-		return -1;
-	}	
 	for (i = 0; i < (n - 1); i++) {
 		if ((y_axis[i] > threshold) || (y_axis[i + 1] > threshold)) {
 			if( gap_list[i] == 0){

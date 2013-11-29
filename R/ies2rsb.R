@@ -11,10 +11,8 @@ ies2rsb<-function(hh_pop1,hh_pop2,popname1=NA,popname2=NA,method="bilateral",all
 		ies_1 = hh_pop1[match(consenesus_rows,hh_pop1[,2]),6]
 		ies_2 = hh_pop2[match(consenesus_rows,hh_pop2[,2]),6]
 	}
-	print(ies_1[1000])
-	print(ies_2[1000])
   tmp_rsbnc=log(ies_1/ies_2) ;
-  tmp_rsbnc[is.infinite(tmp_rsbnc)|is.nan(tmp_rsbnc)] = NA
+  tmp_rsbnc[is.infinite(tmp_rsbnc)|is.nan(tmp_rsbnc)| tmp_rsbnc == 0] = NA
   tmp_med=median(tmp_rsbnc,na.rm=T) ; tmp_sd=sd(tmp_rsbnc,na.rm=T)
   rsbcor=(tmp_rsbnc-tmp_med)/tmp_sd
   tmp_pval=rsbcor*0
